@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="JPAIntroduction_1" author="cw" runOnChange="true"  >
+        <createTable tableName="customer">
+            <column name="id" type="integer">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar2(50)"/>
+            <column name="surname" type="varchar(50)"/>
+            <column name="identity_number" type="varchar(15)"/>
+            <column name="age" type="integer"/>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="customer"></dropTable>
+        </rollback>
+
+        <createSequence sequenceName="id_sequence" incrementBy="1" startValue="5"/>
+
+
+    </changeSet>
+
+    <changeSet id="JPAIntroduction_2" author="cw" context="test">
+        <insert tableName="customer">
+            <column name="id" value="1"/>
+            <column name="name" value="Jane"/>
+            <column name="surname" value="Doe"/>
+            <column name="identity_number" value="654321"/>
+            <column name="age" value="36"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

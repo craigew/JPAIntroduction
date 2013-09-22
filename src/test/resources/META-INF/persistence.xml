@@ -1,0 +1,15 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="1.0">
+    <persistence-unit name="JPAIntroduction" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <class>com.craigew.entity.Customer</class>
+        <class>com.craigew.entity.BaseEntity</class>
+        <properties>
+            <property name="openjpa.ConnectionURL" value="jdbc:oracle:thin:@192.168.0.9:1521/xe"/>
+            <property name="openjpa.ConnectionDriverName" value="oracle.jdbc.driver.OracleDriver"/>
+            <property name="openjpa.ConnectionUserName" value="dev"/>
+            <property name="openjpa.ConnectionPassword" value="dev"/>
+            <property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO"/>
+        </properties>
+    </persistence-unit>
+</persistence>
