@@ -32,6 +32,4 @@ public class TestClientManagement {
         customer = new CustomerManagementService().findCustomerByPrimaryKey(1);
         Assert.assertEquals("Age is not updated",37,customer.getAge());
     }
-
-
 }
